@@ -93,7 +93,7 @@ const options = {
 connection = await mongoose.connect(localurl, options);
 console.log("SUCCESS Connected to database");
 
-schedule.scheduleJob('* * * * *', async () => {
+schedule.scheduleJob('0 0 * * SAT', async () => {
     const user = await User.find({ 'role': 'student' });
     if (!user) throw "NOT_FOUND";
 
